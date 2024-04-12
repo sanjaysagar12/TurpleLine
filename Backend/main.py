@@ -32,7 +32,7 @@ def parking():
             destination_longitude = i[3]
             # haversine_distance = TurpleMap.haversine_distance((origin_latitude,origin_longitude),(destination_latitude,destination_longitude))
             
-            parking_area.update({i[1]:[i[2],i[3],TurpleMap.get_distance((origin_latitude,origin_longitude),(destination_latitude,destination_longitude))]})
+            parking_area.update({i[1]:{"destination_latitude":i[2],"destination_longitude":i[3],"distance":TurpleMap.get_distance((origin_latitude,origin_longitude),(destination_latitude,destination_longitude))}})
         parking_area = json.dumps(parking_area,ensure_ascii=False)
 
         return parking_area
